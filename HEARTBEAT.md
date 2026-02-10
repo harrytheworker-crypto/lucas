@@ -1,5 +1,8 @@
 # HEARTBEAT.md
 
+> **Config:** This heartbeat runs every 1 hour using Claude Haiku (cost-efficient model)
+> Brain model (Kimi) is only used for actual conversations, not heartbeats
+
 ## 🚨 Critical (every heartbeat)
 
 ### Auth Health
@@ -10,6 +13,47 @@ openclaw models status --check
 # Exit 2: expiring within 24h → warn human
 ```
 If exit 1 or 2, message human with details. Don't wait for it to break.
+
+### Model Stack Status (Hourly Report)
+**Check every hour and report to WhatsApp:**
+
+```bash
+# Check current model status
+openclaw models status --check 2>/dev/null | grep -E "(Alias|Configured models|effective=)"
+
+# Quick test of primary models
+echo "Testing Kimi..."
+curl -s https://api.moonshot.cn/v1/models \
+  -H "Authorization: Bearer $(jq -r '.profiles.\"moonshot:default\".key' ~/.openclaw/agents/main/agent/auth-profiles.json)" \
+  | jq -r '.data[0].id' && echo "✅ Kimi OK" || echo "❌ Kimi FAIL"
+
+echo "Testing MiniMax..."
+curl -s https://api.minimax.io/v1/chat/completions \
+  -H "Authorization: Bearer $(jq -r '.profiles.\"minimax:default\".key' ~/.openclaw/agents/main/agent/auth-profiles.json)" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"MiniMax-M2","messages":[{"role":"user","content":"test"}],"max_tokens":1}' \
+  | jq -r '.id' && echo "✅ MiniMax OK" || echo "❌ MiniMax FAIL"
+
+echo "Testing DeepSeek..."
+curl -s https://api.deepseek.com/v1/models \
+  -H "Authorization: Bearer $(jq -r '.profiles.\"deepseek:default\".key' ~/.openclaw/agents/main/agent/auth-profiles.json)" \
+  | jq -r '.data[0].id' && echo "✅ DeepSeek OK" || echo "❌ DeepSeek FAIL"
+```
+
+**Report Format:**
+```
+📊 Model Stack Status
+🧠 Kimi: ✅ OK (RPM: X/10)
+🔧 MiniMax: ✅ OK
+🌐 DeepSeek: ✅ OK
+⚡ Haiku: ✅ OK
+🖼️ Gemini: ✅ OK
+```
+
+**Alert if:**
+- Any model shows FAIL
+- Kimi RPM > 8/10 (warning)
+- Unexpected model changes
 
 ### Gateway Health
 ```bash
@@ -97,6 +141,46 @@ Periodically search topics you work on:
 
 ---
 
+## 💳 Credit Monitoring (daily)
+
+### API Balance Checks
+Check all API provider balances and alert if any drop below $5.
+
+**Providers to monitor:**
+- OpenAI (voice/TTS) - https://platform.openai.com/usage
+- Anthropic (Haiku) - https://console.anthropic.com/settings/billing
+- DeepSeek (brain/web) - https://platform.deepseek.com/usage
+- Google (Gemini images) - https://console.cloud.google.com/billing
+- Moonshot (Kimi fallback) - https://platform.moonshot.cn
+
+**Alert thresholds:**
+- Balance < $5 → WARN (top up soon)
+- Balance < $1 → ALERT (immediate action needed)
+- Auth error → ALERT (key expired/invalid)
+
+**Track in:** `memory/credit-status.json`
+
+---
+
+## 💰 Spending Alerts (daily)
+
+### Model Spending Tracker
+Monitor cumulative spending per model and alert when any hits **$2.50**.
+
+**Models tracked:**
+- DeepSeek V3 (Brain/Web)
+- Haiku (Heartbeat)
+- Kimi (Backup Brain)
+- Gemini Flash (Images)
+- OpenAI TTS (Voice)
+
+**Alert threshold:** $2.50 per model
+**Action on alert:** Notify Lucas immediately
+
+**Track in:** `memory/spending-tracker.json`
+
+---
+
 ## 🛡️ Security (daily)
 
 ### Soul-Evil Hook
@@ -104,6 +188,65 @@ Periodically search topics you work on:
 openclaw hooks list 2>/dev/null | grep -q "soul-evil.*enabled" && echo "WARN: soul-evil active"
 ```
 If active and human didn't enable it, alert.
+
+---
+
+## 🧠 2nd Brain Maintenance (daily)
+
+### Daily Journal Creation
+At end of each day, create a daily journal entry in `lucasnygaard.com/second-brain/content/daily-journals/YYYY-MM-DD.md`:
+
+**Template:**
+```markdown
+---
+title: "Daily Journal - Month DD, YYYY"
+date: "YYYY-MM-DD"
+category: "daily-journal"
+tags: [relevant, tags]
+excerpt: "High-level summary of day's work"
+---
+
+# Daily Journal - Month DD, YYYY
+
+## Overview
+Brief summary of the day's focus.
+
+## Key Activities
+1. **Activity Name**
+   - What was done
+   - Outcome/decision
+   - Status
+
+## Decisions Made
+- Decision 1
+- Decision 2
+
+## Next Steps
+- [ ] Task 1
+- [ ] Task 2
+
+## Notes
+Any additional context worth preserving.
+```
+
+### Concept Documentation
+When discussions reveal important frameworks or ideas:
+1. Create concept doc in `content/concepts/kebab-case-name.md`
+2. Use front matter with proper tags
+3. Write for future reference — include context and examples
+
+### Document Maintenance
+- Keep reference docs updated as processes change
+- Archive outdated content (move to `content/archive/`)
+- Cross-link related documents when helpful
+
+### Nightly Build Process
+As part of the 11pm proactive work:
+1. Create/update daily journal
+2. Review day's conversations for concept-worthy ideas
+3. Create any new concept documents
+4. Build and test 2nd Brain app
+5. Commit changes to git (draft PR for Lucas)
 
 ---
 
@@ -135,6 +278,58 @@ Ask yourself these questions. **Not allowed to answer:** "Nothing comes to mind"
 3. Mention to human if timely
 
 Track in: `memory/proactive-ideas.md`
+
+---
+
+## 🌙 Nightly Proactive Work (11pm)
+
+### Schedule
+**Time:** 11:00 PM Bali (GMT+8)  
+**Channel:** WhatsApp (report what was built)  
+**Model:** DeepSeek V3 (high thinking)
+
+### Mission
+While Lucas sleeps, build things that:
+• Reduce his workload
+• Make him money
+• Improve his business systems
+• Position him as fractional CMO
+
+### What I Build
+• Code (websites, tools, automation)
+• Research (opportunities, competitors, strategies)
+• Content (drafts for his personal brand)
+• Systems (workflows, templates, processes)
+• Analysis (client opportunities, growth ideas)
+
+### Rules
+• Create DRAFTS / PRs only — NEVER push live
+• Lucas tests and commits when ready
+• Document everything in memory/YYYY-MM-DD.md
+• Respect his stress levels — no pressure tactics
+• Focus on 4-hour workday optimization
+
+---
+
+## 📰 Morning Brief (Daily 8am)
+
+### Schedule
+**Time:** 8:00 AM Bali (GMT+8)  
+**Channel:** WhatsApp  
+**Model:** DeepSeek V3
+
+### Content:
+1. Weather — Kedungu/Bali forecast
+2. YouTube & Podcasts — CRO/marketing/growth + Modern Wisdom/spiritual/life improvement
+3. Tasks — From TODO.md
+4. My Tasks — What I can do for Lucas today
+5. Trending — Marketing/Indonesia/business stories
+6. Recommendation — One productivity tip
+
+**Constraints:**
+• Lucas is at MAX capacity — don't add pressure
+• Keep it brief and actionable
+• Focus on systems that reduce his workload
 
 ---
 
@@ -171,6 +366,8 @@ Track in `memory/heartbeat-state.json`:
     "logs": 0,
     "cron": 0,
     "solvr": 0,
+    "credit": 0,
+    "spending": 0,
     "soulEvil": 0,
     "proactive": 0,
     "reasoning": 0,
@@ -187,6 +384,9 @@ Track in `memory/heartbeat-state.json`:
 | Logs | Every 2-4 hours |
 | Cron | Every 4-6 hours |
 | Solvr | Every 4-6 hours |
+| Kimi status check | Every 4 hours (RPM limit recovery) |
+| Credit monitoring | Daily |
+| Spending alerts ($2.50/model) | Daily |
 | Soul-evil | Daily |
 | Proactive ideas | Daily |
 | Reasoning reminder | Weekly |

@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Prose styles for markdown content */
+.prose h1 {
+  @apply text-3xl font-bold text-slate-900 mb-6;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold text-slate-800 mt-8 mb-4;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-slate-800 mt-6 mb-3;
+}
+
+.prose p {
+  @apply text-slate-700 leading-relaxed mb-4;
+}
+
+.prose ul {
+  @apply list-disc list-inside mb-4 space-y-1;
+}
+
+.prose ol {
+  @apply list-decimal list-inside mb-4 space-y-1;
+}
+
+.prose li {
+  @apply text-slate-700;
+}
+
+.prose strong {
+  @apply font-semibold text-slate-900;
+}
+
+.prose em {
+  @apply italic text-slate-700;
+}
+
+.prose code {
+  @apply bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.prose pre code {
+  @apply bg-transparent text-slate-100 p-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-slate-300 pl-4 italic text-slate-600 mb-4;
+}
+
+.prose a {
+  @apply text-indigo-600 hover:text-indigo-700 underline;
+}
+
+.prose table {
+  @apply w-full border-collapse mb-4;
+}
+
+.prose th {
+  @apply border border-slate-200 px-4 py-2 bg-slate-50 font-semibold text-left;
+}
+
+.prose td {
+  @apply border border-slate-200 px-4 py-2;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

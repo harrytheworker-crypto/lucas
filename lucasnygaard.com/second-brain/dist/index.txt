@@ -1,14 +1,14 @@
 1:"$Sreact.fragment"
-2:I[39756,["/_next/static/chunks/2f236954d6a65e12.js"],"default"]
-3:I[37457,["/_next/static/chunks/2f236954d6a65e12.js"],"default"]
-5:I[97367,["/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
+2:I[39756,["/brain/_next/static/chunks/2f236954d6a65e12.js"],"default"]
+3:I[37457,["/brain/_next/static/chunks/2f236954d6a65e12.js"],"default"]
+5:I[97367,["/brain/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
 6:"$Sreact.suspense"
-8:I[97367,["/_next/static/chunks/2f236954d6a65e12.js"],"ViewportBoundary"]
-a:I[97367,["/_next/static/chunks/2f236954d6a65e12.js"],"MetadataBoundary"]
+8:I[97367,["/brain/_next/static/chunks/2f236954d6a65e12.js"],"ViewportBoundary"]
+a:I[97367,["/brain/_next/static/chunks/2f236954d6a65e12.js"],"MetadataBoundary"]
 c:I[68027,[],"default"]
-:HL["/_next/static/chunks/dda78e2e54ab018f.css","style"]
-0:{"P":null,"b":"N85AIvmidY7wY1joyP1eL","c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/dda78e2e54ab018f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"antialiased","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","script","script-0",{"src":"/_next/static/chunks/c895e6e367b778a3.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$L8",null,{"children":"$L9"}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lb"}]}]}],null]}],false]],"m":"$undefined","G":["$c",[]],"S":true}
-d:I[95609,["/_next/static/chunks/c895e6e367b778a3.js"],"default"]
+:HL["/brain/_next/static/chunks/d74087c3c4dfc254.css","style"]
+0:{"P":null,"b":"kECPblSZK0IiZCoBu1LkR","c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/brain/_next/static/chunks/d74087c3c4dfc254.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"antialiased","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","script","script-0",{"src":"/brain/_next/static/chunks/c895e6e367b778a3.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$L8",null,{"children":"$L9"}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lb"}]}]}],null]}],false]],"m":"$undefined","G":["$c",[]],"S":true}
+d:I[95609,["/brain/_next/static/chunks/c895e6e367b778a3.js"],"default"]
 e:T6b3,
 # Daily Journal - February 10, 2026
 
@@ -130,7 +130,43 @@ Lucas is transitioning from **"Pinterest Guy"** / **Marketing Consultant** to **
 - [ ] Create case studies showing strategic impact
 - [ ] Develop value-based pricing framework
 - [ ] Build authority content around CRO/growth
-10:T6b3,
+10:T444,
+# Design References for lucasnygaard.com
+
+## Reference Sites
+
+### 1. Cameron Cruz
+**URL:** http://cameroncruz.com/
+
+**What Lucas likes about it:**
+- **Aesthetic:** Premium, black aesthetic
+- **Vibe:** High-end, sophisticated
+- **Use for:** Visual style, color scheme, overall premium feel
+
+### 2. Micky Weis
+**URL:** https://www.mickyweis.com/en/
+
+**What Lucas likes about it:**
+- **Functionality:** Block sections layout
+- **Hero section design**
+- **Sign-up flow/CTAs**
+- **Use for:** Structure, layout patterns, conversion elements
+
+## Design Direction
+
+**The Middle Ground Approach:**
+- **Visual Style:** Cameron Cruz's premium black aesthetic
+- **Structure & Functionality:** Micky Weis's block sections, hero, and sign-up
+- **Result:** Premium fractional CMO site with strong conversion elements
+
+## Usage
+These references will guide the design of the public-facing lucasnygaard.com website (fractional CMO positioning).
+
+The 2nd brain and admin dashboard will be at lucasnygaard.com/admin (password protected).
+
+**Saved:** February 10, 2026
+**Next Review:** When building public site
+11:T6b3,
 # Daily Journal - February 10, 2026
 
 ## Overview
@@ -176,7 +212,7 @@ Today marked the beginning of the 2nd Brain system - a living knowledge base for
 - Lucas is at max capacity, stressed, needs systems that reduce workload
 - Goal: 4-hour workday, 50-70k DKK/month
 - Communication preference: minimal, direct, no status updates
-11:T6fe,
+12:T6fe,
 # Fractional CMO Positioning
 
 ## The Shift
@@ -251,8 +287,44 @@ Lucas is transitioning from **"Pinterest Guy"** / **Marketing Consultant** to **
 - [ ] Create case studies showing strategic impact
 - [ ] Develop value-based pricing framework
 - [ ] Build authority content around CRO/growth
-4:["$","$Ld",null,{"documents":[{"slug":"2026-02-10","title":"Daily Journal - February 10, 2026","date":"2026-02-10","category":"daily-journal","tags":["setup","2nd-brain","whatsapp-fix"],"excerpt":"First day with the 2nd brain system. Fixed WhatsApp spam bug, configured AI models, and began building the knowledge management system.","content":"$e","readingTime":2},{"slug":"fractional-cmo-positioning","title":"Fractional CMO Positioning","date":"2026-02-10","category":"concept","tags":["positioning","fractional-cmo","marketing","strategy"],"excerpt":"Why Lucas is positioning as a Fractional CMO rather than a marketing consultant, and what this means for client relationships.","content":"$f","readingTime":2}],"allDocuments":[{"slug":"2026-02-10","title":"Daily Journal - February 10, 2026","date":"2026-02-10","category":"daily-journal","tags":"$4:props:documents:0:tags","excerpt":"First day with the 2nd brain system. Fixed WhatsApp spam bug, configured AI models, and began building the knowledge management system.","content":"$10","readingTime":2},{"slug":"fractional-cmo-positioning","title":"Fractional CMO Positioning","date":"2026-02-10","category":"concept","tags":"$4:props:documents:1:tags","excerpt":"Why Lucas is positioning as a Fractional CMO rather than a marketing consultant, and what this means for client relationships.","content":"$11","readingTime":2}],"categoryCounts":{"daily-journal":1,"concept":1,"document":0},"initialCategory":null}]
+13:T444,
+# Design References for lucasnygaard.com
+
+## Reference Sites
+
+### 1. Cameron Cruz
+**URL:** http://cameroncruz.com/
+
+**What Lucas likes about it:**
+- **Aesthetic:** Premium, black aesthetic
+- **Vibe:** High-end, sophisticated
+- **Use for:** Visual style, color scheme, overall premium feel
+
+### 2. Micky Weis
+**URL:** https://www.mickyweis.com/en/
+
+**What Lucas likes about it:**
+- **Functionality:** Block sections layout
+- **Hero section design**
+- **Sign-up flow/CTAs**
+- **Use for:** Structure, layout patterns, conversion elements
+
+## Design Direction
+
+**The Middle Ground Approach:**
+- **Visual Style:** Cameron Cruz's premium black aesthetic
+- **Structure & Functionality:** Micky Weis's block sections, hero, and sign-up
+- **Result:** Premium fractional CMO site with strong conversion elements
+
+## Usage
+These references will guide the design of the public-facing lucasnygaard.com website (fractional CMO positioning).
+
+The 2nd brain and admin dashboard will be at lucasnygaard.com/admin (password protected).
+
+**Saved:** February 10, 2026
+**Next Review:** When building public site
+4:["$","$Ld",null,{"documents":[{"slug":"2026-02-10","title":"Daily Journal - February 10, 2026","date":"2026-02-10","category":"daily-journal","tags":["setup","2nd-brain","whatsapp-fix"],"excerpt":"First day with the 2nd brain system. Fixed WhatsApp spam bug, configured AI models, and began building the knowledge management system.","content":"$e","readingTime":2},{"slug":"fractional-cmo-positioning","title":"Fractional CMO Positioning","date":"2026-02-10","category":"concept","tags":["positioning","fractional-cmo","marketing","strategy"],"excerpt":"Why Lucas is positioning as a Fractional CMO rather than a marketing consultant, and what this means for client relationships.","content":"$f","readingTime":2},{"slug":"design-references","title":"Design References for lucasnygaard.com","date":"2026-02-10","category":"document","tags":["design","website","reference","lucasnygaard.com"],"excerpt":"Design inspiration and reference sites for Lucas Nygaard's personal branding website.","content":"$10","readingTime":1}],"allDocuments":[{"slug":"2026-02-10","title":"Daily Journal - February 10, 2026","date":"2026-02-10","category":"daily-journal","tags":"$4:props:documents:0:tags","excerpt":"First day with the 2nd brain system. Fixed WhatsApp spam bug, configured AI models, and began building the knowledge management system.","content":"$11","readingTime":2},{"slug":"fractional-cmo-positioning","title":"Fractional CMO Positioning","date":"2026-02-10","category":"concept","tags":"$4:props:documents:1:tags","excerpt":"Why Lucas is positioning as a Fractional CMO rather than a marketing consultant, and what this means for client relationships.","content":"$12","readingTime":2},{"slug":"design-references","title":"Design References for lucasnygaard.com","date":"2026-02-10","category":"document","tags":"$4:props:documents:2:tags","excerpt":"Design inspiration and reference sites for Lucas Nygaard's personal branding website.","content":"$13","readingTime":1}],"categoryCounts":{"daily-journal":1,"concept":1,"document":1},"initialCategory":null}]
 9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-12:I[27201,["/_next/static/chunks/2f236954d6a65e12.js"],"IconMark"]
+14:I[27201,["/brain/_next/static/chunks/2f236954d6a65e12.js"],"IconMark"]
 7:null
-b:[["$","title","0",{"children":"2nd Brain | Lucas Nygaard"}],["$","meta","1",{"name":"description","content":"A living knowledge base of ideas, concepts, and daily reflections."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L12","3",{}]]
+b:[["$","title","0",{"children":"2nd Brain | Lucas Nygaard"}],["$","meta","1",{"name":"description","content":"A living knowledge base of ideas, concepts, and daily reflections."}],["$","link","2",{"rel":"icon","href":"/brain/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]

@@ -2,8 +2,6 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/admin/(.*)", "dest": "/second-brain/dist/$1" },
-    { "src": "/admin", "dest": "/second-brain/dist/index.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

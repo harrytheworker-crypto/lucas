@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Nygaard | Fractional CMO & Growth Strategist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent: #c9a96e;
+            --accent-hover: #dfbf85;
+            --border: #222;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(201, 169, 110, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tagline {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-block {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--accent), transparent 30%);
+            animation: rotate 8s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: #333;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .service-card h3 {
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 8rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .client-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .client-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .client-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-card .duration {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .client-card p {
+            font-size: 0.95rem;
+            max-width: none;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-block {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .about-image-block::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            right: -2rem;
+            bottom: -2rem;
+            border: 1px solid var(--accent);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-list .check {
+            color: var(--accent);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.25rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image-block {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image-block {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .services {
+                padding: 5rem 0;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .clients {
+                padding: 5rem 0;
+            }
+
+            .about {
+                padding: 5rem 0;
+            }
+
+            .cta {
+                padding: 5rem 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Lucas<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary nav-cta">Book a Call</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-tagline">Fractional CMO & Growth Strategist</span>
+                    <h1>Scale Your Brand. Multiply Your Revenue.</h1>
+                    <p class="hero-description">I help ambitious companies build high-converting marketing systems and growth engines that deliver predictable, scalable results.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Book a Call →</a>
+                        <a href="#services" class="btn btn-outline">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-block">
+                        <div class="hero-avatar">LN</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years with Blue Sportswear</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">10x</div>
+                    <div class="stat-label">Average ROAS Increase</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Million in Ad Spend Managed</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Growth-First Mindset</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Services That Drive Growth</h2>
+                <p>Strategic marketing solutions tailored to your business stage and goals.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎯</div>
+                    <h3>Fractional CMO</h3>
+                    <p>Executive-level marketing leadership without the full-time salary. Strategic direction, team alignment, and growth frameworks.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📈</div>
+                    <h3>Conversion Rate Optimization</h3>
+                    <p>Turn more visitors into customers with data-driven CRO strategies, A/B testing, and conversion funnel optimization.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📢</div>
+                    <h3>Paid Advertising</h3>
+                    <p>High-ROI paid campaigns across Meta, Google, and TikTok. Maximize ROAS while scaling spend efficiently.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🛒</div>
+                    <h3>Shopify Development</h3>
+                    <p>Build high-converting Shopify stores that sell while you sleep. Custom themes, integrations, and optimization.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚀</div>
+                    <h3>Growth Strategy</h3>
+                    <p>Comprehensive growth roadmaps tailored to your business. Identify opportunities, prioritize initiatives, execute wins.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💡</div>
+                    <h3>Strategic Consulting</h3>
+                    <p>Expert guidance on marketing strategy, team building, brand positioning, and scaling operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="clients">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Trusted Partners</h2>
+                <p>Long-term partnerships with ambitious brands.</p>
+            </div>
+            <div class="clients-grid">
+                <div class="client-card fade-in">
+                    <div class="client-logo">Blue Sportswear</div>
+                    <h4>Blue Sportswear</h4>
+                    <div class="duration">5 Years & Growing</div>
+                    <p>Full marketing partnership driving brand evolution and market expansion across multiple channels.</p>
+                </div>
+                <div class="client-card fade-in">
+                    <div class="client-logo">Fulcrum</div>
+                    <h4>Fulcrum</h4>
+                    <div class="duration">Fractional CMO</div>
+                    <p>Executive marketing leadership, building internal capabilities while executing high-impact campaigns.</p>
+                </div>
+                <div class="client-card fade-in">
+                    <div class="client-logo">+ More</div>
+                    <h4>Emerging Brands</h4>
+                    <div class="duration">Growth Partners</div>
+                    <p>Scaling DTC brands from 7 to 8 figures with proven frameworks and hands-on execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-block"></div>
+                </div>
+                <div class="about-text fade-in">
+                    <h2>Growth Is What I Do</h2>
+                    <p>I'm Lucas Nygaard, a Fractional CMO and Growth Strategist who specializes in building marketing systems that actually work.</p>
+                    <p>With over a decade of experience scaling brands from the ground up, I bring a practical, results-focused approach to every engagement.</p>
+                    <p>My philosophy is simple: every marketing dollar should work harder. Whether it's paid ads, CRO, or brand strategy, I help you build engines of growth that compound over time.</p>
+                    <ul class="about-list">
+                        <li><span class="check">✓</span> Data-driven decision making</li>
+                        <li><span class="check">✓</span> Customer-centric approach</li>
+                        <li><span class="check">✓</span> Scalable systems & processes</li>
+                        <li><span class="check">✓</span> Transparent communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Accelerate Your Growth?</h2>
+                <p>Let's discuss how I can help your brand scale. Book a free 30-minute strategy call to explore the possibilities.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Book a Call →</a>
+                    <a href="mailto:hello@lucasnygaard.com" class="btn btn-outline">Email Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Lucas<span>.</span></div>
+                <div class="footer-links">
+                    <a href="#services">Services</a>
+                    <a href="#clients">Clients</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-copy">© 2025 Lucas Nygaard. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'linear-gradient(to bottom, rgba(10, 10, 10, 0.9) 0%, transparent 100%)';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

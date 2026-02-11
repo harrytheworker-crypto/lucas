@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Lucas Nygaard - Fractional CMO</title>
+    <meta name="description" content="Learn about Lucas Nygaard's journey from IT support in Denmark to fractional CMO in Bali. 5+ years helping fashion brands grow.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-hero {
+            padding: 160px 0 80px;
+            background-color: var(--bg-secondary);
+        }
+        
+        .about-hero-content {
+            max-width: 800px;
+        }
+        
+        .about-hero h1 {
+            margin-bottom: 24px;
+        }
+        
+        .about-hero .lead {
+            font-size: 1.35rem;
+            color: var(--text-light);
+        }
+        
+        .story-section {
+            padding: 80px 0;
+        }
+        
+        .story-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .story-content h2 {
+            margin-top: 60px;
+            margin-bottom: 24px;
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+        
+        .timeline {
+            margin: 60px 0;
+            padding-left: 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-left: 32px;
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            min-width: 80px;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 8px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .value-card {
+            padding: 32px;
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius);
+        }
+        
+        .value-card h3 {
+            margin-bottom: 12px;
+            color: var(--accent-color);
+        }
+        
+        .bali-section {
+            padding: 80px 0;
+            background-color: var(--bg-secondary);
+        }
+        
+        .bali-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .bali-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Lucas Nygaard</a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html" class="btn-primary">Book a Call</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1>The Journey from IT Support to Growth Strategist</h1>
+                <p class="lead">I'm not your typical marketer. My path started in doctor's offices in Denmark, passed through one of Europe's most famous startup offices, and landed me in Bali — building growth systems for fashion brands worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <h2>How It Started</h2>
+                <p>My first real job was in IT support, fixing computer systems for doctors in my hometown of Herning, Denmark. I had a company car (a Mercedes, actually) and good working conditions. But I knew I wanted something different.</p>
+                
+                <p>I moved to Copenhagen and landed a role at Jesper Buch's office. If you're Danish, you know who he is — the founder of Just Eat, one of Europe's biggest food delivery successes. Working alongside him and his team for three years taught me what real growth looks like. Not just marketing tricks, but building systems that scale.</p>
+
+                <h2>The Pivot to Marketing</h2>
+                <p>Four years ago, I moved to Bali. The original plan wasn't marketing — but I started helping friends with their businesses, then their friends, and eventually I had real clients. Blue Sportswear became my first major client, and five years later, we're still working together.</p>
+                
+                <p>What started as running Pinterest ads evolved into full growth strategy. CRO, retention systems, team management — the whole picture.</p>
+
+                <h2>My Philosophy</h2>
+                <p>I believe in systems over hacks. Anyone can get lucky with one campaign. I build sustainable growth engines that keep working month after month.</p>
+                
+                <p>I'm also a firm believer in efficiency. I work 4 hours a day, max. Not because I'm lazy, but because I've learned that focused, high-impact work beats busywork every time.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <h3>IT Support in Herning</h3>
+                            <p>Mercedes company car, stable job, but itching for something more entrepreneurial.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-content">
+                            <h3>Jesper Buch's Office</h3>
+                            <p>Three years learning from one of Denmark's top entrepreneurs. Two hometown friends joined me there.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h3>Moved to Bali</h3>
+                            <p>Chased the dream of location independence. Started helping friends with their businesses.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h3>Blue Sportswear</h3>
+                            <p>First major client. Started with Pinterest ads, grew into full marketing partnership.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h3>Fractional CMO</h3>
+                            <p>Positioned as strategic growth partner, not just an ad manager. Launched Pinterestguy.com.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-content">
+                            <h3>Scaling Up</h3>
+                            <p>Building lucasnygaard.com, planning to hire Teja full-time, expanding the team.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>What I Value</h2>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3>Systems Thinking</h3>
+                        <p>I don't chase tactics. I build repeatable systems that generate results consistently.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Data-Driven</h3>
+                        <p>Opinions are nice. Numbers are better. Every decision is backed by data.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Scandinavian Efficiency</h3>
+                        <p>Work smarter, not longer. Four focused hours beats eight distracted ones.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>Long-Term Partnerships</h3>
+                        <p>5+ years with Blue Sportswear. I invest in relationships, not transactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bali Section -->
+    <section class="bali-section">
+        <div class="container">
+            <div class="bali-content">
+                <div class="bali-text">
+                    <h2>Life in Bali</h2>
+                    <p>I live in Kedungu, Bali with my girlfriend (she's from Bandung, Indonesia). We moved to a wooden house recently — simple living, focused work.</p>
+                    <p>Being in Bali isn't just about the lifestyle (though the weather is great). It's about proving that you can build serious businesses from anywhere. The time zone works well for both European and Asian clients.</p>
+                    <p>When I'm not working, I'm probably surfing, exploring the island, or helping my girlfriend with her Shopify store.</p>
+                </div>
+                <div class="bali-image">
+                    <div class="image-placeholder">
+                        <span>Bali Life</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want to Work Together?</h2>
+                <p>If you're a fashion brand looking to scale, I'd love to hear about your challenges. Book a free call and let's see if we're a good fit.</p>
+                <a href="contact.html" class="btn-primary btn-large">Book Your Free Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Lucas Nygaard</h3>
+                    <p>Fractional CMO for fashion brands. Based in Bali, working globally.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>lucas@lucasnygaard.com</p>
+                    <p>Based in Bali, Indonesia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Nygaard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

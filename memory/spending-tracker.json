@@ -1,0 +1,38 @@
+{
+  "alertThreshold": 2.50,
+  "currency": "USD",
+  "lastReset": "2026-02-08",
+  "models": {
+    "deepseek/deepseek-chat": {
+      "name": "DeepSeek V3 (Brain/Web)",
+      "spent": 0.00,
+      "lastAlert": null,
+      "costPer1M": {"input": 0.07, "output": 0.28}
+    },
+    "anthropic/claude-3-haiku-20240307": {
+      "name": "Haiku (Heartbeat)",
+      "spent": 0.00,
+      "lastAlert": null,
+      "costPer1M": {"input": 0.25, "output": 1.25}
+    },
+    "moonshot/kimi-k2.5": {
+      "name": "Kimi (Backup Brain)",
+      "spent": 0.00,
+      "lastAlert": null,
+      "costPer1M": {"input": 0.50, "output": 1.50}
+    },
+    "google/gemini-2.5-flash": {
+      "name": "Gemini Flash (Images)",
+      "spent": 0.00,
+      "lastAlert": null,
+      "costPer1M": {"input": 0.15, "output": 0.60}
+    },
+    "openai/tts-1": {
+      "name": "OpenAI TTS (Voice)",
+      "spent": 0.00,
+      "lastAlert": null,
+      "costPer1M": {"chars": 15.00}
+    }
+  },
+  "notes": "Spending tracked since lastReset. Alert when any model hits $2.50. Reset monthly or manually."
+}

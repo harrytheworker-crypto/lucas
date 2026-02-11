@@ -1,0 +1,30 @@
+{
+  "lastChecked": "2026-02-08",
+  "providers": {
+    "openai": {
+      "balance": "unknown",
+      "status": "active",
+      "lastAlert": null
+    },
+    "anthropic": {
+      "balance": "unknown",
+      "status": "active",
+      "lastAlert": null
+    },
+    "deepseek": {
+      "balance": "unknown",
+      "status": "active",
+      "lastAlert": null
+    },
+    "google": {
+      "balance": "unknown",
+      "status": "active",
+      "lastAlert": null
+    },
+    "moonshot": {
+      "balance": "unknown",
+      "status": "rpm_limited",
+      "lastAlert": "2026-02-08"
+    }
+  }
+}

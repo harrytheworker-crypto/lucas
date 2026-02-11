@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Lucas Nygaard - Fractional CMO</title>
+    <meta name="description" content="Book a free 30-minute call with Lucas Nygaard. Discuss your fashion brand's growth challenges and get actionable advice.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-hero {
+            padding: 160px 0 80px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-form-wrapper h2 {
+            margin-bottom: 16px;
+        }
+        
+        .contact-form-wrapper > p {
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--bg-color);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-light);
+        }
+        
+        .contact-info {
+            padding: 48px;
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            height: fit-content;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 32px;
+        }
+        
+        .info-item {
+            margin-bottom: 32px;
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .info-value a {
+            color: var(--accent-color);
+        }
+        
+        .info-value a:hover {
+            text-decoration: underline;
+        }
+        
+        .availability-note {
+            padding: 24px;
+            background-color: #f0fff4;
+            border-radius: var(--radius);
+            margin-top: 32px;
+        }
+        
+        .availability-note h4 {
+            color: #38a169;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .availability-note p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .what-to-expect {
+            padding: 80px 0;
+            background-color: var(--bg-secondary);
+        }
+        
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .expect-card {
+            padding: 32px;
+            background-color: var(--bg-color);
+            border-radius: var(--radius-lg);
+        }
+        
+        .expect-card h3 {
+            margin-bottom: 12px;
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Lucas Nygaard</a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html" class="btn-primary">Book a Call</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Let's Talk Growth</h1>
+            <p>Book a free 30-minute call. I'll give you 3 actionable ideas you can use immediately — even if we don't work together.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <h2>Send Me a Message</h2>
+                    <p>Tell me about your brand and what you're struggling with. I'll respond within 24 hours.</p>
+                    
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@yourbrand.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Brand/Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your Fashion Brand">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="revenue">Current Monthly Revenue (approximate)</label>
+                            <select id="revenue" name="revenue">
+                                <option value="">Select a range</option>
+                                <option value="0-10k">$0 - $10,000</option>
+                                <option value="10k-50k">$10,000 - $50,000</option>
+                                <option value="50k-100k">$50,000 - $100,000</option>
+                                <option value="100k+">$100,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">What's your biggest growth challenge right now?</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your situation, what's working, what's not, and what you've tried..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary btn-large">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Other Ways to Reach Me</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:lucas@lucasnygaard.com">lucas@lucasnygaard.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-label">Location</div>
+                        <div class="info-value">Kedungu, Bali, Indonesia</div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-label">Time Zone</div>
+                        <div class="info-value">GMT+8 (Asia/Makassar)</div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-label">Response Time</div>
+                        <div class="info-value">Within 24 hours</div>
+                    </div>
+                    
+                    <div class="availability-note">
+                        <h4>Current Availability</h4>
+                        <p>I'm currently accepting 1-2 new fractional CMO clients. If you're a fashion brand doing $50K+/month and want to scale, let's talk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="what-to-expect">
+        <div class="container">
+            <div class="section-header">
+                <h2>What to Expect</h2>
+                <p>Here's how we'll work together from first contact to results.</p>
+            </div>
+            
+            <div class="expect-grid">
+                <div class="expect-card">
+                    <h3>1. Discovery Call (Free)</h3>
+                    <p>30-minute conversation about your business. I'll ask about your current marketing, biggest challenges, and goals. You can ask me anything.</p>
+                </div>
+                <div class="expect-card">
+                    <h3>2. Custom Proposal</h3>
+                    <p>If we're a good fit, I'll send a proposal within 48 hours. Clear scope, timeline, and pricing. No surprises.</p>
+                </div>
+                <div class="expect-card">
+                    <h3>3. Quick Onboarding</h3>
+                    <p>One week to get access to accounts, set up communication, and align on priorities. Then we start executing.</p>
+                </div>
+                <div class="expect-card">
+                    <h3>4. Regular Updates</h3>
+                    <p>Weekly calls, daily availability via WhatsApp/Slack, and transparent reporting. You'll always know what's happening.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Lucas Nygaard</h3>
+                    <p>Fractional CMO for fashion brands. Based in Bali, working globally.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>lucas@lucasnygaard.com</p>
+                    <p>Based in Bali, Indonesia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Nygaard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

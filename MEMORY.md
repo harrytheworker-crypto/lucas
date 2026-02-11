@@ -45,7 +45,46 @@
 ## 🧠 Lessons Learned
 
 ### Technical
-[Bugs hit, solutions found]
+#### WhatsApp Pairing Message Bug (Fixed 2026-02-10)
+**Problem:** WhatsApp gateway sends spam "Clawdbot: access not configured. Pairing code: ..." messages in cascades when reconnecting/restarting.
+
+**Root Cause:** Missing WhatsApp configuration → defaults to `dmPolicy: "pairing"`, `selfChatMode: false`. When WhatsApp reconnects, plugin thinks it needs to pair and sends configuration messages.
+
+**Solution:** Add to `~/.openclaw/openclaw.json`:
+```json
+"channels": {
+  "whatsapp": {
+    "selfChatMode": true,
+    "dmPolicy": "allowlist",
+    "allowFrom": ["+4540122109"]
+  }
+}
+```
+- `selfChatMode: true` → Personal number mode, prevents pairing replies
+- `dmPolicy: "allowlist"` → Not "pairing", no pairing messages
+- `allowFrom` → Explicitly allow Lucas's number
+
+**Apply:** Use `gateway config.patch` to update without full restart.
+
+**GitHub Issue:** #834 - "Clawdbot just mass messaged about 20 of my WhatsApp contacts"
+
+#### WhatsApp Multiple Auto-Reply Bug (Fixed 2026-02-10)
+**Problem:** Single inbound WhatsApp messages trigger multiple "Auto-replied" events within milliseconds (e.g., 15 messages in <1 second).
+
+**Root Cause:** `debounceMs: 0` (default) causes rapid-fire auto-replies without debouncing.
+
+**Solution:** Set `debounceMs: 1000` (or 500+) in WhatsApp configuration:
+```json
+"channels": {
+  "whatsapp": {
+    "debounceMs": 1000
+  }
+}
+```
+
+**GitHub Issue:** #7271 - "WhatsApp: Multiple auto-replies fired for single inbound message"
+
+**Key Insight:** "Auto-replied" log entries may be ATTEMPTED sends; WhatsApp may throttle/block rapid spam, so user might not receive all messages.
 
 ### Workflow
 [Process improvements, patterns that work]

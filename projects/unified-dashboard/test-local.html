@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Local Links</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .link { display: block; margin: 10px 0; padding: 10px; background: #f0f0f0; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Test Local File Access</h1>
+    
+    <div class="link">
+        <a href="file:///Users/harry/.openclaw/workspace/projects/lucasnygaard.com/index.html" target="_blank">
+            Test Website (lucasnygaard.com)
+        </a>
+        <div id="website-status">Click to test</div>
+    </div>
+    
+    <div class="link">
+        <a href="http://localhost:3000" target="_blank">
+            Test Mission Control Dashboard (localhost:3000)
+        </a>
+        <div id="dashboard-status">Click to test - need to run `npm run dev` first</div>
+    </div>
+    
+    <div class="link">
+        <a href="file:///Users/harry/.openclaw/workspace/projects/unified-dashboard/index.html" target="_blank">
+            Test Unified Dashboard
+        </a>
+        <div id="unified-status">Click to test</div>
+    </div>
+    
+    <script>
+        // Simple test to check if links work
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const statusEl = this.parentElement.querySelector('div[id$="status"]');
+                statusEl.textContent = 'Testing...';
+                statusEl.className = '';
+                
+                // Simulate test (actual test would need CORS permissions)
+                setTimeout(() => {
+                    if (this.href.includes('localhost:3000')) {
+                        statusEl.textContent = 'Note: Need to run Mission Control dev server first';
+                        statusEl.className = 'error';
+                    } else {
+                        statusEl.textContent = 'Link opened in new tab';
+                        statusEl.className = 'success';
+                    }
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

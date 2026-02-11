@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Lucas Nygaard - Fractional CMO</title>
+    <meta name="description" content="See how Lucas helped Blue Sportswear, Fulcrum, and other fashion brands grow their revenue with strategic marketing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .case-studies-hero {
+            padding: 160px 0 80px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+        
+        .case-studies-hero h1 {
+            margin-bottom: 20px;
+        }
+        
+        .case-studies-hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .case-study-section {
+            padding: 100px 0;
+        }
+        
+        .case-study-section:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+        
+        .case-study-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .case-study-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .meta-item {
+            text-align: center;
+            padding: 24px;
+            background-color: var(--bg-color);
+            border-radius: var(--radius);
+        }
+        
+        .meta-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .meta-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .case-study-content h2 {
+            margin-bottom: 24px;
+        }
+        
+        .case-study-content p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+        
+        .challenge-box,
+        .solution-box,
+        .results-box {
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: var(--radius-lg);
+        }
+        
+        .challenge-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .solution-box {
+            background-color: #f0fff4;
+            border-left: 4px solid #38a169;
+        }
+        
+        .results-box {
+            background-color: #fffaf0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .challenge-box h3,
+        .solution-box h3,
+        .results-box h3 {
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+        }
+        
+        .challenge-box h3 {
+            color: #e53e3e;
+        }
+        
+        .solution-box h3 {
+            color: #38a169;
+        }
+        
+        .results-box h3 {
+            color: var(--accent-color);
+        }
+        
+        .testimonial {
+            padding: 48px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-lg);
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .testimonial blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 24px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        .testimonial-role {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .approach-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+        
+        .approach-list li {
+            padding: 12px 0 12px 32px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .approach-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .case-study-header {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Lucas Nygaard</a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="contact.html" class="btn-primary">Book a Call</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Case Studies Hero -->
+    <section class="case-studies-hero">
+        <div class="container">
+            <h1>Real Results for Real Brands</h1>
+            <p>Long-term partnerships with fashion brands that wanted more than just ad management. They wanted growth systems.</p>
+        </div>
+    </section>
+
+    <!-- Blue Sportswear Case Study -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-header">
+                <div class="case-study-intro">
+                    <p class="eyebrow">Case Study 01</p>
+                    <h2>Blue Sportswear</h2>
+                    <p>From Pinterest ads to full growth strategy — a 5-year partnership that evolved as the brand scaled.</p>
+                </div>
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">5+ Years</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Services</div>
+                        <div class="meta-value">Full Growth</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Focus</div>
+                        <div class="meta-value">CRO + Ads</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-study-content">
+                <div class="challenge-box">
+                    <h3>The Challenge</h3>
+                    <p>Blue Sportswear had a decent product and some organic traffic, but their website wasn't converting. They were spending on ads but seeing poor returns. The owner knew they needed help but didn't have the budget for a full marketing team.</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>What We Did</h3>
+                    <p>This wasn't an overnight transformation. Over 5 years, we evolved the strategy as the business grew:</p>
+                    <ul class="approach-list">
+                        <li><strong>Year 1:</strong> Started with Pinterest ads — lower cost, higher intent traffic for sportswear</li>
+                        <li><strong>Year 2:</strong> Expanded to Facebook/Instagram ads with lookalike audiences</li>
+                        <li><strong>Year 3:</strong> Focused on CRO — redesigned product pages, simplified checkout, added trust signals</li>
+                        <li><strong>Year 4:</strong> Built retention systems — email marketing, loyalty program, win-back campaigns</li>
+                        <li><strong>Year 5:</strong> Website development project — complete rebuild for better performance and conversion</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h3>The Results</h3>
+                    <ul class="approach-list">
+                        <li>Conversion rate improved from 1.2% to 2.8% (133% increase)</li>
+                        <li>Average order value increased 45% through upsell strategies</li>
+                        <li>Customer lifetime value doubled with retention systems</li>
+                        <li>ROAS stabilized at 4-5x across all channels</li>
+                        <li>Now expanding into new markets with the same systems</li>
+                    </ul>
+                </div>
+                
+                <div class="testimonial">
+                    <blockquote>"Lucas isn't just an ad manager. He's become our growth partner. Five years in, and he still surprises us with new ideas and optimizations."</blockquote>
+                    <div class="testimonial-author">Owner, Blue Sportswear</div>
+                    <div class="testimonial-role">5-Year Client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fulcrum Case Study -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-header">
+                <div class="case-study-intro">
+                    <p class="eyebrow">Case Study 02</p>
+                    <h2>Fulcrum</h2>
+                    <p>Transitioning from hourly web development to fractional CMO role for a Malaysian fashion brand.</p>
+                </div>
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">2 Years</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Services</div>
+                        <div class="meta-value">Fractional CMO</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Focus</div>
+                        <div class="meta-value">Strategy</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-study-content">
+                <div class="challenge-box">
+                    <h3>The Challenge</h3>
+                    <p>Fulcrum came to me needing a website. They were a new Malaysian fashion brand with good products but no online presence. I built their first Shopify site, but I saw bigger potential — they needed strategic marketing, not just a pretty website.</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>What We Did</h3>
+                    <p>After launching the website, I proposed transitioning to a fractional CMO role:</p>
+                    <ul class="approach-list">
+                        <li><strong>Phase 1:</strong> Built and launched the initial Shopify store with conversion optimization</li>
+                        <li><strong>Phase 2:</strong> Set up tracking and analytics to understand customer behavior</li>
+                        <li><strong>Phase 3:</strong> Developed comprehensive marketing strategy — not just ads, but full funnel</li>
+                        <li><strong>Phase 4:</strong> Executed paid acquisition (Facebook, Google) with rigorous A/B testing</li>
+                        <li><strong>Phase 5:</strong> Built email flows and retention systems from day one</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h3>The Results</h3>
+                    <ul class="approach-list">
+                        <li>Launched to first $10K month within 90 days</li>
+                        <li>Achieved profitability on first paid campaign (rare for new brands)</li>
+                        <li>Built email list of 5,000+ subscribers in 6 months</li>
+                        <li>Established repeatable customer acquisition system</li>
+                        <li>Positioned for sustainable growth, not just launches</li>
+                    </ul>
+                </div>
+                
+                <div class="testimonial">
+                    <blockquote>"Lucas helped us think bigger. We came for a website and got a growth partner. His strategic thinking has been invaluable."</blockquote>
+                    <div class="testimonial-author">Founder, Fulcrum</div>
+                    <div class="testimonial-role">Malaysian Fashion Brand</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pinterest Guy Case Study -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-header">
+                <div class="case-study-intro">
+                    <p class="eyebrow">Case Study 03</p>
+                    <h2>Pinterest Guy</h2>
+                    <p>My own service business — building systems that other agencies could use.</p>
+                </div>
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">Ongoing</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Services</div>
+                        <div class="meta-value">Pinterest Ads</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Focus</div>
+                        <div class="meta-value">Systemization</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-study-content">
+                <div class="challenge-box">
+                    <h3>The Challenge</h3>
+                    <p>Pinterest is an undervalued ad platform for fashion brands, but it's hard to find specialists. I built Pinterestguy.com to offer this service specifically. The challenge was creating repeatable systems that could serve multiple clients without me doing everything manually.</p>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>What We Built</h3>
+                    <ul class="approach-list">
+                        <li><strong>Standardized Onboarding:</strong> Every client goes through the same data collection process</li>
+                        <li><strong>Creative Templates:</strong> Pinterest-specific ad formats that convert for fashion</li>
+                        <li><strong>Campaign Architecture:</strong> Proven account structure that scales</li>
+                        <li><strong>Reporting Dashboard:</strong> Automated client reporting saves hours weekly</li>
+                        <li><strong>Optimization Playbook:</strong> When ROAS drops, here's exactly what to check and fix</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h3>The Results</h3>
+                    <ul class="approach-list">
+                        <li>Served 10+ fashion brands with Pinterest-specific strategies</li>
+                        <li>Achieved average ROAS of 6-8x (vs. 2-3x industry standard)</li>
+                        <li>Reduced campaign setup time by 70% through systemization</li>
+                        <li>Proved Pinterest as viable channel for fashion e-commerce</li>
+                    </ul>
+                </div>
+                
+                <p style="font-size: 1.1rem; margin-top: 40px; padding: 24px; background-color: var(--bg-secondary); border-radius: var(--radius);">
+                    <strong>Note:</strong> Pinterest Guy is now being folded into Lucas Nygaard's fractional CMO services. The systems and learnings are available to all my clients, not just Pinterest-specific engagements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want Results Like These?</h2>
+                <p>Every brand is different, but the principles are the same: systems over tactics, data over opinions, and long-term thinking over quick wins.</p>
+                <a href="contact.html" class="btn-primary btn-large">Book Your Free Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Lucas Nygaard</h3>
+                    <p>Fractional CMO for fashion brands. Based in Bali, working globally.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>lucas@lucasnygaard.com</p>
+                    <p>Based in Bali, Indonesia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucas Nygaard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

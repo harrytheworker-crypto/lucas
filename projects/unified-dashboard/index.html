@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Nygaard - Unified Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .app-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            border-color: #4f46e5;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+        }
+
+        .app-card h3 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .app-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .app-card .icon {
+            font-size: 2rem;
+        }
+
+        .app-card .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .status.ready {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status.development {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .quick-links {
+            background: #f1f5f9;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .quick-links h3 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .link-item:hover {
+            border-color: #4f46e5;
+            background: #f8fafc;
+        }
+
+        .link-item h4 {
+            font-size: 1rem;
+            color: #4f46e5;
+            margin-bottom: 5px;
+        }
+
+        .link-item p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Lucas Nygaard</h1>
+            <p>Fractional CMO & Growth Strategist | One link to access everything</p>
+        </div>
+
+        <div class="content">
+            <div class="apps-grid">
+                <a href="#" class="app-card" id="website-card">
+                    <h3><span class="icon">🌐</span> Personal Website</h3>
+                    <p>Your personal branding site - showcase your expertise, services, and case studies to attract fractional CMO clients.</p>
+                    <span class="status ready">Ready to Deploy</span>
+                </a>
+
+                <a href="#" class="app-card" id="dashboard-card">
+                    <h3><span class="icon">📊</span> Mission Control</h3>
+                    <p>Central dashboard with activity feed, calendar view, and global search. Monitor everything from one place.</p>
+                    <span class="status ready">Ready to Deploy</span>
+                </a>
+            </div>
+
+            <div class="quick-links">
+                <h3>Quick Access</h3>
+                <div class="links-grid">
+                    <a href="https://calendar.google.com" target="_blank" class="link-item">
+                        <h4>Google Calendar</h4>
+                        <p>Schedule and appointments</p>
+                    </a>
+                    <a href="https://drive.google.com" target="_blank" class="link-item">
+                        <h4>Google Drive</h4>
+                        <p>Documents and files</p>
+                    </a>
+                    <a href="https://mail.google.com" target="_blank" class="link-item">
+                        <h4>Gmail</h4>
+                        <p>Email and communications</p>
+                    </a>
+                    <a href="#" class="link-item" id="notion-link">
+                        <h4>Notion Workspace</h4>
+                        <p>Projects and documentation</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Access from anywhere • Updated: February 9, 2026</p>
+        </div>
+    </div>
+
+    <script>
+        // Website and dashboard URLs (to be updated after deployment)
+        const WEBSITE_URL = '#'; // Will be updated after deployment
+        const DASHBOARD_URL = '#'; // Will be updated after deployment
+        
+        // Set up click handlers
+        document.getElementById('website-card').addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = WEBSITE_URL === '#' ? 
+                'file://' + window.location.pathname.replace('index.html', '../lucasnygaard.com/index.html') : 
+                WEBSITE_URL;
+            window.open(url, '_blank');
+        });
+        
+        document.getElementById('dashboard-card').addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = DASHBOARD_URL === '#' ? 
+                'http://localhost:3000' : 
+                DASHBOARD_URL;
+            window.open(url, '_blank');
+        });
+        
+        // Notion link placeholder
+        document.getElementById('notion-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Notion workspace link will be added once configured.');
+        });
+        
+        // Show current location for debugging
+        console.log('Unified Dashboard loaded from:', window.location.href);
+        console.log('Website local path:', 'file://' + window.location.pathname.replace('index.html', '../lucasnygaard.com/index.html'));
+        console.log('Dashboard local path:', 'http://localhost:3000');
+    </script>
+</body>
+</html>

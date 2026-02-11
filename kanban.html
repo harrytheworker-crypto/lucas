@@ -3,364 +3,621 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry's Task Board - Lucas</title>
+    <title>Project Kanban Board</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #1a1a2e;
-            color: #eee;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
+            color: #e4e4e7;
+            padding: 20px;
         }
-        
-        header {
+
+        .header {
             text-align: center;
             margin-bottom: 30px;
             padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
         }
-        
-        h1 {
-            font-size: 2em;
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
         }
-        
-        .subtitle {
-            opacity: 0.8;
-            font-size: 0.9em;
+
+        .header p {
+            color: #a1a1aa;
+            font-size: 1.1rem;
         }
-        
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+
+        .kanban-container {
+            display: flex;
+            gap: 25px;
             max-width: 1400px;
             margin: 0 auto;
+            overflow-x: auto;
+            padding-bottom: 20px;
         }
-        
+
         .column {
-            background: #16213e;
-            border-radius: 12px;
-            padding: 15px;
-            min-height: 500px;
+            flex: 1;
+            min-width: 320px;
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        
+
         .column-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .todo .column-header { border-color: #e74c3c; }
-        .inprogress .column-header { border-color: #f39c12; }
-        .done .column-header { border-color: #27ae60; }
-        
+
         .column-title {
-            font-size: 1.2em;
-            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-        
-        .count {
-            background: rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
-        }
-        
-        .task-card {
-            background: #0f3460;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 10px;
-            cursor: move;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-left: 4px solid;
-        }
-        
-        .task-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        
-        .todo .task-card { border-left-color: #e74c3c; }
-        .inprogress .task-card { border-left-color: #f39c12; }
-        .done .task-card { border-left-color: #27ae60; }
-        
-        .task-title {
+            gap: 10px;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.95em;
         }
-        
+
+        .column-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .todo .column-icon { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .inprogress .column-icon { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .done .column-icon { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+
+        .task-count {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .task-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .task-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .task-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #f4f4f5;
+        }
+
         .task-meta {
             display: flex;
-            gap: 10px;
-            font-size: 0.75em;
-            opacity: 0.7;
-            margin-top: 8px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-        
+
+        .task-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
         .tag {
-            background: rgba(255,255,255,0.1);
-            padding: 2px 6px;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .tag-design { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+        .tag-dev { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .tag-bug { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .tag-feature { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .tag-docs { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .tag-review { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .tag-testing { background: rgba(14, 165, 233, 0.2); color: #38bdf8; }
+        .tag-deployment { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+
+        .task-priority {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .priority-high { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+        .priority-medium { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+        .priority-low { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+
+        .task-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .assignee {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .due-date {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 4px;
         }
-        
-        .priority-high { color: #e74c3c; }
-        .priority-medium { color: #f39c12; }
-        .priority-low { color: #27ae60; }
-        
-        .date {
-            font-size: 0.75em;
-            opacity: 0.6;
-            margin-top: 5px;
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
         }
-        
-        .icon {
-            font-size: 1.2em;
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
-        
-        @media (max-width: 900px) {
-            .board {
-                grid-template-columns: 1fr;
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .kanban-container {
+                flex-direction: column;
+            }
+            
+            .column {
+                min-width: 100%;
             }
         }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .task-card {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .column:nth-child(1) .task-card:nth-child(1) { animation-delay: 0.05s; }
+        .column:nth-child(1) .task-card:nth-child(2) { animation-delay: 0.1s; }
+        .column:nth-child(1) .task-card:nth-child(3) { animation-delay: 0.15s; }
+        .column:nth-child(1) .task-card:nth-child(4) { animation-delay: 0.2s; }
+        .column:nth-child(2) .task-card:nth-child(1) { animation-delay: 0.25s; }
+        .column:nth-child(2) .task-card:nth-child(2) { animation-delay: 0.3s; }
+        .column:nth-child(3) .task-card:nth-child(1) { animation-delay: 0.35s; }
+        .column:nth-child(3) .task-card:nth-child(2) { animation-delay: 0.4s; }
+        .column:nth-child(3) .task-card:nth-child(3) { animation-delay: 0.45s; }
+        .column:nth-child(3) .task-card:nth-child(4) { animation-delay: 0.5s; }
+        .column:nth-child(3) .task-card:nth-child(5) { animation-delay: 0.55s; }
+        .column:nth-child(3) .task-card:nth-child(6) { animation-delay: 0.6s; }
+        .column:nth-child(3) .task-card:nth-child(7) { animation-delay: 0.65s; }
+        .column:nth-child(3) .task-card:nth-child(8) { animation-delay: 0.7s; }
+        .column:nth-child(3) .task-card:nth-child(9) { animation-delay: 0.75s; }
+        .column:nth-child(3) .task-card:nth-child(10) { animation-delay: 0.8s; }
+        .column:nth-child(3) .task-card:nth-child(11) { animation-delay: 0.85s; }
+        .column:nth-child(3) .task-card:nth-child(12) { animation-delay: 0.9s; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🤖 Harry's Task Board</h1>
-        <div class="subtitle">Tracking tasks for Lucas | Last updated: Feb 7, 2026</div>
-    </header>
-    
-    <div class="board">
-        <!-- TO DO Column -->
+    <div class="header">
+        <h1>📋 Project Kanban Board</h1>
+        <p>Track tasks, manage progress, ship faster</p>
+    </div>
+
+    <div class="kanban-container">
+        <!-- To Do Column -->
         <div class="column todo">
             <div class="column-header">
                 <div class="column-title">
-                    <span class="icon">📋</span>
-                    To Do
+                    <div class="column-icon">📝</div>
+                    <span>To Do</span>
                 </div>
-                <span class="count">4</span>
+                <span class="task-count">4</span>
             </div>
-            
-            <div class="task-card">
-                <div class="task-title">Design lucasnygaard.com in Figma</div>
-                <div class="date">Created: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag priority-high">High Priority</span>
-                    <span class="tag">Website</span>
+            <div class="task-list">
+                <div class="task-card">
+                    <div class="task-title">Design system architecture document</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-docs">Documentation</span>
+                            <span class="tag tag-design">Architecture</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">JD</div>
+                        </div>
+                        <div class="due-date">📅 Feb 10</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">Create case studies from current clients</div>
-                <div class="date">Created: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag priority-high">High Priority</span>
-                    <span class="tag">Marketing</span>
+
+                <div class="task-card">
+                    <div class="task-title">Set up CI/CD pipeline for automated testing</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">DevOps</span>
+                            <span class="tag tag-deployment">CI/CD</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">MK</div>
+                        </div>
+                        <div class="due-date">📅 Feb 12</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">Build outreach list of Shopify brands</div>
-                <div class="date">Created: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag priority-medium">Medium</span>
-                    <span class="tag">Sales</span>
+
+                <div class="task-card">
+                    <div class="task-title">Create user onboarding flow mockups</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-design">Design</span>
+                            <span class="tag tag-feature">UX</span>
+                        </div>
+                        <div class="task-priority priority-medium"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">AS</div>
+                        </div>
+                        <div class="due-date">📅 Feb 14</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">Set up Google Knowledge Panel</div>
-                <div class="date">Created: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag priority-medium">Medium</span>
-                    <span class="tag">SEO</span>
+
+                <div class="task-card">
+                    <div class="task-title">Research competitor analysis for Q1</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-docs">Research</span>
+                            <span class="tag tag-feature">Strategy</span>
+                        </div>
+                        <div class="task-priority priority-low"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">TL</div>
+                        </div>
+                        <div class="due-date">📅 Feb 20</div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- IN PROGRESS Column -->
+
+        <!-- In Progress Column -->
         <div class="column inprogress">
             <div class="column-header">
                 <div class="column-title">
-                    <span class="icon">⚡</span>
-                    In Progress
+                    <div class="column-icon">🚀</div>
+                    <span>In Progress</span>
                 </div>
-                <span class="count">2</span>
+                <span class="task-count">2</span>
             </div>
-            
-            <div class="task-card">
-                <div class="task-title">Install Chrome extension for browser control</div>
-                <div class="date">Started: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag priority-high">High Priority</span>
-                    <span class="tag">Setup</span>
+            <div class="task-list">
+                <div class="task-card">
+                    <div class="task-title">Implement authentication API endpoints</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">Backend</span>
+                            <span class="tag tag-feature">Auth</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">RK</div>
+                        </div>
+                        <div class="due-date">📅 Feb 8</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">Optimize cost usage ($1-2/day target)</div>
-                <div class="date">Started: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag priority-high">High Priority</span>
-                    <span class="tag">Budget</span>
+
+                <div class="task-card">
+                    <div class="task-title">Refactor dashboard components for better performance</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">Frontend</span>
+                            <span class="tag tag-bug">Performance</span>
+                        </div>
+                        <div class="task-priority priority-medium"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">JD</div>
+                        </div>
+                        <div class="due-date">📅 Feb 9</div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- DONE Column -->
+
+        <!-- Done Column -->
         <div class="column done">
             <div class="column-header">
                 <div class="column-title">
-                    <span class="icon">✅</span>
-                    Done
+                    <div class="column-icon">✅</div>
+                    <span>Done</span>
                 </div>
-                <span class="count">12</span>
+                <span class="task-count">12</span>
             </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Setup WhatsApp voice transcription</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Setup</span>
+            <div class="task-list">
+                <div class="task-card">
+                    <div class="task-title">Initial project setup and repository creation</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">Setup</span>
+                            <span class="tag tag-feature">Infrastructure</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">MK</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Configure memory flush + session search</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Config</span>
+
+                <div class="task-card">
+                    <div class="task-title">Database schema design and migration scripts</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">Database</span>
+                            <span class="tag tag-docs">Schema</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">RK</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Setup MiniMax M2.1 for coding</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">AI Models</span>
+
+                <div class="task-card">
+                    <div class="task-title">User registration and login UI components</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-design">UI</span>
+                            <span class="tag tag-feature">Auth</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">AS</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Enable elevated permissions</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Security</span>
+
+                <div class="task-card">
+                    <div class="task-title">API documentation with Swagger/OpenAPI</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-docs">Documentation</span>
+                            <span class="tag tag-dev">API</span>
+                        </div>
+                        <div class="task-priority priority-medium"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">TL</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Setup auto-approve for commands</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Config</span>
+
+                <div class="task-card">
+                    <div class="task-title">Fix navigation menu responsiveness issues</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-bug">Bug Fix</span>
+                            <span class="tag tag-design">UI</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">JD</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Configure daily conversation exports</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Backup</span>
+
+                <div class="task-card">
+                    <div class="task-title">Set up error tracking with Sentry</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">DevOps</span>
+                            <span class="tag tag-testing">Monitoring</span>
+                        </div>
+                        <div class="task-priority priority-medium"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">MK</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Enable Tailscale remote access</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Network</span>
+
+                <div class="task-card">
+                    <div class="task-title">User profile page design and implementation</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-design">UI</span>
+                            <span class="tag tag-feature">Feature</span>
+                        </div>
+                        <div class="task-priority priority-medium"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">AS</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Install proactive-solvr skill</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Skills</span>
+
+                <div class="task-card">
+                    <div class="task-title">Unit tests for authentication service</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-testing">Testing</span>
+                            <span class="tag tag-dev">Backend</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">RK</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Setup Git backups</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Backup</span>
+
+                <div class="task-card">
+                    <div class="task-title">Configure environment variables for staging</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-dev">DevOps</span>
+                            <span class="tag tag-deployment">Config</span>
+                        </div>
+                        <div class="task-priority priority-low"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">TL</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Create todo list (lucasnygaard.com, etc.)</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Planning</span>
+
+                <div class="task-card">
+                    <div class="task-title">Code review guidelines documentation</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-docs">Documentation</span>
+                            <span class="tag tag-review">Process</span>
+                        </div>
+                        <div class="task-priority priority-low"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">JD</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="task-card">
-                <div class="task-title">✓ Document user requirements ($2/day budget)</div>
-                <div class="date">Completed: Feb 7, 2026</div>
-                <div class="task-meta">
-                    <span class="tag">Documentation</span>
+
+                <div class="task-card">
+                    <div class="task-title">Dark mode theme implementation</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-design">UI</span>
+                            <span class="tag tag-feature">Theme</span>
+                        </div>
+                        <div class="task-priority priority-medium"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">AS</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-title">Initial security audit and vulnerability fixes</div>
+                    <div class="task-meta">
+                        <div class="task-tags">
+                            <span class="tag tag-bug">Security</span>
+                            <span class="tag tag-testing">Audit</span>
+                        </div>
+                        <div class="task-priority priority-high"></div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="assignee">
+                            <div class="avatar">MK</div>
+                        </div>
+                        <div class="due-date">✓ Completed</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <script>
-        // Simple drag and drop functionality
-        document.querySelectorAll('.task-card').forEach(card => {
-            card.draggable = true;
-            
-            card.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', card.innerHTML);
-                card.style.opacity = '0.5';
-            });
-            
-            card.addEventListener('dragend', () => {
-                card.style.opacity = '1';
-            });
-        });
-        
-        document.querySelectorAll('.column').forEach(column => {
-            column.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
-            
-            column.addEventListener('drop', (e) => {
-                e.preventDefault();
-                const data = e.dataTransfer.getData('text/plain');
-                // In a real implementation, this would move the card
-                // For now, just alert that drag and drop would work
-                console.log('Card dropped in', column.className);
-            });
-        });
-        
-        // Update counts
-        function updateCounts() {
-            document.querySelectorAll('.column').forEach(column => {
-                const count = column.querySelectorAll('.task-card').length;
-                column.querySelector('.count').textContent = count;
-            });
-        }
-        
-        updateCounts();
-    </script>
 </body>
 </html>

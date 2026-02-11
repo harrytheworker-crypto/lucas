@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard | Lucas Nygaard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Client Dashboard</h2>
+                </div>
+                <div class="user-info">
+                    <div class="avatar">LN</div>
+                    <div class="user-details">
+                        <h3>Lucas Nygaard</h3>
+                        <p>Fractional CMO</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Clients</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="time-tracker">
+                    <h4><i class="fas fa-clock"></i> Today's Work: 2h 15m</h4>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 56%"></div>
+                    </div>
+                    <p>Goal: 4 hours</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <h1>Client Dashboard</h1>
+                    <p class="subtitle">Tuesday, February 10, 2026</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Client
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Export Report
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Overview -->
+            <section class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e3f2fd;">
+                        <i class="fas fa-user-tie" style="color: #1976d2;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>2</h3>
+                        <p>Active Clients</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #f3e5f5;">
+                        <i class="fas fa-money-bill-wave" style="color: #7b1fa2;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>25,000 DKK</h3>
+                        <p>Monthly Revenue</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e8f5e9;">
+                        <i class="fas fa-chart-line" style="color: #388e3c;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>+12.5%</h3>
+                        <p>Avg. Growth</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #fff3e0;">
+                        <i class="fas fa-clock" style="color: #f57c00;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>18.5h</h3>
+                        <p>Hours This Week</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Client Cards -->
+            <section class="client-section">
+                <h2 class="section-title">Active Clients</h2>
+                
+                <div class="client-cards">
+                    <!-- Blue Sportswear Card -->
+                    <div class="client-card">
+                        <div class="client-header">
+                            <div class="client-logo" style="background-color: #1e88e5;">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div class="client-info">
+                                <h3>Blue Sportswear</h3>
+                                <p class="client-type">Fashion Brand</p>
+                                <div class="client-meta">
+                                    <span class="badge badge-primary">5+ years</span>
+                                    <span class="badge badge-success">20,000 DKK/mo</span>
+                                </div>
+                            </div>
+                            <div class="client-status">
+                                <span class="status-indicator active"></span>
+                                Active
+                            </div>
+                        </div>
+                        
+                        <div class="client-metrics">
+                            <div class="metric">
+                                <h4>Conversion Rate</h4>
+                                <div class="metric-value">
+                                    <span class="value">2.8%</span>
+                                    <span class="trend trend-up">+0.4%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <h4>ROAS</h4>
+                                <div class="metric-value">
+                                    <span class="value">3.2x</span>
+                                    <span class="trend trend-up">+0.5x</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <h4>Weekly Hours</h4>
+                                <div class="metric-value">
+                                    <span class="value">10h</span>
+                                    <span class="trend trend-down">-2h</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 62%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="client-actions">
+                            <button class="btn btn-sm btn-outline">
+                                <i class="fas fa-chart-bar"></i> View Report
+                            </button>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-comment"></i> Message
+                            </button>
+                        </div>
+                        
+                        <div class="client-tasks">
+                            <h4>Pending Tasks (3)</h4>
+                            <ul class="task-list">
+                                <li class="task-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Review Facebook ad performance</span>
+                                </li>
+                                <li class="task-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Update website CRO recommendations</span>
+                                </li>
+                                <li class="task-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Monthly strategy call (Feb 15)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Fulcrum Card -->
+                    <div class="client-card">
+                        <div class="client-header">
+                            <div class="client-logo" style="background-color: #43a047;">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="client-info">
+                                <h3>Fulcrum</h3>
+                                <p class="client-type">Malaysian Company</p>
+                                <div class="client-meta">
+                                    <span class="badge badge-primary">Fractional CMO</span>
+                                    <span class="badge badge-success">5,000 DKK/mo</span>
+                                </div>
+                            </div>
+                            <div class="client-status">
+                                <span class="status-indicator active"></span>
+                                Active
+                            </div>
+                        </div>
+                        
+                        <div class="client-metrics">
+                            <div class="metric">
+                                <h4>Website Traffic</h4>
+                                <div class="metric-value">
+                                    <span class="value">+45%</span>
+                                    <span class="trend trend-up">+12%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <h4>Lead Growth</h4>
+                                <div class="metric-value">
+                                    <span class="value">+28%</span>
+                                    <span class="trend trend-up">+8%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <h4>Weekly Hours</h4>
+                                <div class="metric-value">
+                                    <span class="value">8.5h</span>
+                                    <span class="trend trend-neutral">0h</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 53%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="client-actions">
+                            <button class="btn btn-sm btn-outline">
+                                <i class="fas fa-chart-bar"></i> View Report
+                            </button>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-comment"></i> Message
+                            </button>
+                        </div>
+                        
+                        <div class="client-tasks">
+                            <h4>Pending Tasks (2)</h4>
+                            <ul class="task-list">
+                                <li class="task-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Finalize website development handoff</span>
+                                </li>
+                                <li class="task-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Marketing strategy presentation (Feb 20)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Schedule -->
+            <section class="schedule-section">
+                <div class="section-header">
+                    <h2 class="section-title">This Week's Schedule</h2>
+                    <a href="#" class="view-all">View Full Calendar</a>
+                </div>
+                
+                <div class="schedule-cards">
+                    <div class="schedule-card">
+                        <div class="schedule-date">
+                            <div class="day">Tue</div>
+                            <div class="date">10</div>
+                        </div>
+                        <div class="schedule-content">
+                            <h4>Blue Sportswear: Ad Review</h4>
+                            <p class="schedule-time"><i class="fas fa-clock"></i> 9:00 AM - 10:30 AM</p>
+                            <p class="schedule-desc">Weekly performance analysis of Facebook/Pinterest ads</p>
+                        </div>
+                        <div class="schedule-status">
+                            <span class="badge badge-completed">Completed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-date">
+                            <div class="day">Wed</div>
+                            <div class="date">11</div>
+                        </div>
+                        <div class="schedule-content">
+                            <h4>Fulcrum: Dev Sync</h4>
+                            <p class="schedule-time"><i class="fas fa-clock"></i> 2:00 PM - 3:00 PM</p>
+                            <p class="schedule-desc">Website development progress update with Shopify dev</p>
+                        </div>
+                        <div class="schedule-status">
+                            <span class="badge badge-upcoming">Upcoming</span>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card">
+                        <div class="schedule-date">
+                            <div class="day">Thu</div>
+                            <div class="date">12</div>
+                        </div>
+                        <div class="schedule-content">
+                            <h4>Blue Sportswear: CRO Implementation</h4>
+                            <p class="schedule-time"><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</p>
+                            <p class="schedule-desc">Implement website conversion rate optimization changes</p>
+                        </div>
+                        <div class="schedule-status">
+                            <span class="badge badge-upcoming">Upcoming</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2 class="section-title">Quick Actions</h2>
+                <div class="action-grid">
+                    <button class="action-card">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>Generate Invoice</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Monthly Report</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-clock"></i>
+                        <span>Log Time</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>Send Updates</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
